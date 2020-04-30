@@ -48,5 +48,10 @@ class MenuViewController: UIViewController {
 
 /* Call this function at the end of customization of component  */
         circularMenu.updateMenu()
+      
+/* Call back to receive selcted index*/
+        circularMenu.callBack = {[weak self] (index: Int, item: String) in
+            print("Index: \(index) Item: \(item)")
+        }
     }
 }
