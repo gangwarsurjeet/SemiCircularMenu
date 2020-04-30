@@ -33,15 +33,18 @@ class MenuViewController: UIViewController {
 /* Update to increase item spacing todisplay less/more item at once */
         circularMenu.itemSpacing = 30
 
+/* Update to change nob title */
         circularMenu.nobTitle = "GO!"
         
+/* Update to change nob title font */
         circularMenu.nobTitleFont = UIFont.boldSystemFont(ofSize: 26)
-        
+
+/* Update to change items font passes in itemArray */
         circularMenu.itemFont = UIFont.systemFont(ofSize: 16)
         
         
 /* Update items to display as menu */
-        circularMenu.itemArray = ["Test 1 Test 1 Test 1 Test 1", "Test 2", "Test 3","Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12"]
+        circularMenu.itemArray = ["Test 1", "Test 2", "Test 3","Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12"]
 
 /* Call this function at the end of customization of component  */
         circularMenu.updateMenu()
