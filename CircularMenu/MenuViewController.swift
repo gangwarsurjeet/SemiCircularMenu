@@ -25,13 +25,23 @@ class MenuViewController: UIViewController {
 //        circularMenu.selectorTextColor = UIColor.red
         
 /* Update small semi circular nob */
-//        circularMenu.nobImage = UIImage(named: "nobImage-1")
+        circularMenu.nobImage = UIImage(named: "circle")
 
+/* Update Selector cone image */
+        circularMenu.selectorImage = UIImage(named: "selection_bg_without_cone")
+        
 /* Update to increase item spacing todisplay less/more item at once */
         circularMenu.itemSpacing = 30
 
+        circularMenu.nobTitle = "GO!"
+        
+        circularMenu.nobTitleFont = UIFont.boldSystemFont(ofSize: 26)
+        
+        circularMenu.itemFont = UIFont.systemFont(ofSize: 16)
+        
+        
 /* Update items to display as menu */
-        circularMenu.itemArray = ["Test 1", "Test 2", "Test 3","Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12"]
+        circularMenu.itemArray = ["Test 1 Test 1 Test 1 Test 1", "Test 2", "Test 3","Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12"]
 
 /* Call this function at the end of customization of component  */
         circularMenu.updateMenu()

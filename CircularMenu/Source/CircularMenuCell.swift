@@ -30,13 +30,15 @@ class CircularMenuCell: UICollectionViewCell {
         titleLbl?.textAlignment = .center
         titleLbl?.textColor = textColor
         titleLbl?.backgroundColor = .clear
+        titleLbl?.numberOfLines = 2
         self.addSubview(titleLbl!)
         titleLbl?.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             titleLbl!.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            titleLbl!.leftAnchor.constraint(equalTo: self.leftAnchor),
+            titleLbl!.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
             titleLbl!.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            titleLbl!.rightAnchor.constraint(equalTo: self.rightAnchor)
+            titleLbl!.rightAnchor.constraint(equalTo: self.rightAnchor,constant: -5)
         ])
     }
 }

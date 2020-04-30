@@ -19,7 +19,11 @@ class CircularMenuView: UIView {
     public var itemsTextColor = UIColor.white
     public var selectorTextColor = UIColor.black
     
+    public var itemFont = UIFont.systemFont(ofSize: 15)
+    public var nobTitleFont = UIFont.systemFont(ofSize: 15)
+    
     public var itemArray: [String]?
+    public var nobTitle = ""
     public var itemSpacing: CGFloat?
     
     public var nobImage = UIImage.init(named: "nobImage")
@@ -28,6 +32,7 @@ class CircularMenuView: UIView {
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: CustomFlowLayout())
     private let selecterView = CircularMenuSelectorview(frame: .zero)
     private let nobIconImageView = UIImageView(frame: .zero)
+    private let nobTitleLbl = UILabel.init(frame: .zero)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,7 +48,13 @@ class CircularMenuView: UIView {
         
         nobIconImageView.backgroundColor = .clear
         nobIconImageView.image = nobImage
-        nobIconImageView.contentMode = .scaleToFill
+        nobIconImageView.contentMode = .scaleAspectFit
+        
+        nobTitleLbl.font = nobTitleFont
+        nobTitleLbl.textAlignment = .center
+        nobTitleLbl.textColor = .white
+        nobTitleLbl.textAlignment = .center
+        nobTitleLbl.backgroundColor = .clear
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -54,7 +65,9 @@ class CircularMenuView: UIView {
         self.addSubview(collectionView)
         self.addSubview(selecterView)
         self.addSubview(nobIconImageView)
-        
+        self.addSubview(nobTitleLbl)
+
+        nobTitleLbl.translatesAutoresizingMaskIntoConstraints = false
         nobIconImageView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         selecterView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,22 +77,24 @@ class CircularMenuView: UIView {
             collectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             collectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 10),
-            nobIconImageView.widthAnchor.constraint(equalToConstant: 100),
-            nobIconImageView.heightAnchor.constraint(equalToConstant: 180),
+            nobIconImageView.widthAnchor.constraint(equalToConstant: 120),
             nobIconImageView.leftAnchor.constraint(equalTo: self.leftAnchor),
             nobIconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
+            nobTitleLbl.centerXAnchor.constraint(equalTo: nobIconImageView.centerXAnchor, constant: -10),
+            nobTitleLbl.centerYAnchor.constraint(equalTo: nobIconImageView.centerYAnchor, constant: 0),
             selecterView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
-            selecterView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5),
-            selecterView.heightAnchor.constraint(equalToConstant: 100),
-            selecterView.leftAnchor.constraint(equalTo: nobIconImageView.rightAnchor, constant: -10)
+            selecterView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            selecterView.heightAnchor.constraint(equalToConstant: 130),
+            selecterView.leftAnchor.constraint(equalTo: nobIconImageView.rightAnchor, constant: -12)
         ])
         collectionView.register(CircularMenuCell.self, forCellWithReuseIdentifier: "MenuCell")
         
         if let layout = collectionView.collectionViewLayout as? CustomFlowLayout {
+            let xOffset: CGFloat = 120
             layout.radius = 100
             layout.itemSpacing = 30
-            layout.xOffSet = 100
-            layout.cellSize = CGSize(width: self.frame.size.width-100, height: 60)
+            layout.xOffSet = xOffset
+            layout.cellSize = CGSize(width: self.frame.size.width-xOffset-10, height: 60)
         }
         updateSelectedValue()
     }
@@ -89,8 +104,11 @@ class CircularMenuView: UIView {
             layout.itemSpacing = spacing
         }
         collectionView.reloadData()
+        nobTitleLbl.text = nobTitle
+        nobTitleLbl.font = nobTitleFont
+        
         nobIconImageView.image = nobImage
-        selecterView.updateSelectorUI(selectorImage, selectorTextColor)
+        selecterView.updateSelectorUI(selectorImage, textColor: selectorTextColor, font: itemFont)
         updateSelectedValue()
     }
     
@@ -127,6 +145,7 @@ extension CircularMenuView: UICollectionViewDataSource, UICollectionViewDelegate
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as? CircularMenuCell else {
             return UICollectionViewCell()
         }
+        cell.titleLbl?.font = itemFont
         cell.titleLbl?.textColor = itemsTextColor
         if let items = itemArray, items.count > indexPath.row {
             cell.titleLbl?.text = items[indexPath.row]
