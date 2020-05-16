@@ -25,6 +25,7 @@ class CircularMenuSelectorview: UIView {
     }
     
     private func initContent() {
+        self.isUserInteractionEnabled = false
         selectorImageView = UIImageView.init(frame: .zero)
         selectorImageView?.backgroundColor = UIColor.clear
         selectorImageView?.contentMode = .scaleToFill
