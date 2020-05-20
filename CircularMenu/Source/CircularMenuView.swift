@@ -29,7 +29,10 @@ class CircularMenuView: UIView {
     public var nobImage = UIImage.init(named: "nobImage")
     public var selectorImage: UIImage?
     
+    public var shouldScrollToNearest: Bool = true
+    
     public var callBack: ((Int, String) -> Void)?
+    
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: CustomFlowLayout())
     private let selecterView = CircularMenuSelectorview(frame: .zero)
@@ -96,6 +99,7 @@ class CircularMenuView: UIView {
         
         if let layout = collectionView.collectionViewLayout as? CustomFlowLayout {
             let xOffset: CGFloat = 120
+            layout.shouldSnap = shouldScrollToNearest
             layout.radius = 100
             layout.itemSpacing = 30
             layout.xOffSet = xOffset
@@ -107,6 +111,7 @@ class CircularMenuView: UIView {
     public func updateMenu() {
         if let spacing = itemSpacing, let layout = collectionView.collectionViewLayout as? CustomFlowLayout {
             layout.itemSpacing = spacing
+            layout.shouldSnap = shouldScrollToNearest
         }
         collectionView.reloadData()
         nobTitleButton.setTitle(nobTitle, for: .normal)

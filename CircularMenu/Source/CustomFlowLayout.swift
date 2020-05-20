@@ -16,6 +16,7 @@ class CustomFlowLayout: UICollectionViewFlowLayout {
     public var itemHeight: CGFloat = 0
     public var itemSpacing: CGFloat = 0
     public var radius: CGFloat = 0
+    public var shouldSnap: Bool = true
     
     public var cellSize = CGSize.zero {
         didSet {
@@ -89,7 +90,14 @@ class CustomFlowLayout: UICollectionViewFlowLayout {
         return itemFrame
     }
     
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        if shouldSnap {
+            let index = Int(floor(proposedContentOffset.y / itemHeight))
+            let yOffset = CGFloat(Int(proposedContentOffset.y) % Int(itemHeight))
+            
+            let targetY = (yOffset > itemHeight * 0.5 && index <= cellCount) ? CGFloat(index+1) * itemHeight : CGFloat(index) * itemHeight
+            return CGPoint(x: proposedContentOffset.x, y: targetY)
+        }
         return proposedContentOffset
     }
     
