@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DCB44CEA245AD96B000C4A6E /* CircularMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircularMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB44CEA245AD96B000C4A6E /* SemiCircularMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SemiCircularMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB44CED245AD96B000C4A6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCB44CEF245AD96B000C4A6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DCB44CF4245AD96B000C4A6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		DCB44CE1245AD96B000C4A6E = {
 			isa = PBXGroup;
 			children = (
-				DCB44CEC245AD96B000C4A6E /* CircularMenu */,
+				DCB44CEC245AD96B000C4A6E /* SemiCircularMenu */,
 				DCB44CEB245AD96B000C4A6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,12 +56,12 @@
 		DCB44CEB245AD96B000C4A6E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCB44CEA245AD96B000C4A6E /* CircularMenu.app */,
+				DCB44CEA245AD96B000C4A6E /* SemiCircularMenu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DCB44CEC245AD96B000C4A6E /* CircularMenu */ = {
+		DCB44CEC245AD96B000C4A6E /* SemiCircularMenu */ = {
 			isa = PBXGroup;
 			children = (
 				DCB44D0A245ADB13000C4A6E /* MenuViewController.swift */,
@@ -73,7 +73,7 @@
 				DCB44CF8245AD96D000C4A6E /* LaunchScreen.storyboard */,
 				DCB44CFB245AD96D000C4A6E /* Info.plist */,
 			);
-			path = CircularMenu;
+			path = SemiCircularMenu;
 			sourceTree = "<group>";
 		};
 		DCB44D01245AD97E000C4A6E /* Source */ = {
@@ -90,9 +90,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DCB44CE9245AD96B000C4A6E /* CircularMenu */ = {
+		DCB44CE9245AD96B000C4A6E /* SemiCircularMenu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCB44CFE245AD96D000C4A6E /* Build configuration list for PBXNativeTarget "CircularMenu" */;
+			buildConfigurationList = DCB44CFE245AD96D000C4A6E /* Build configuration list for PBXNativeTarget "SemiCircularMenu" */;
 			buildPhases = (
 				DCB44CE6245AD96B000C4A6E /* Sources */,
 				DCB44CE7245AD96B000C4A6E /* Frameworks */,
@@ -102,9 +102,9 @@
 			);
 			dependencies = (
 			);
-			name = CircularMenu;
+			name = SemiCircularMenu;
 			productName = CircularMenu;
-			productReference = DCB44CEA245AD96B000C4A6E /* CircularMenu.app */;
+			productReference = DCB44CEA245AD96B000C4A6E /* SemiCircularMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DCB44CE5245AD96B000C4A6E /* Build configuration list for PBXProject "CircularMenu" */;
+			buildConfigurationList = DCB44CE5245AD96B000C4A6E /* Build configuration list for PBXProject "SemiCircularMenu" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,7 +135,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DCB44CE9245AD96B000C4A6E /* CircularMenu */,
+				DCB44CE9245AD96B000C4A6E /* SemiCircularMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -309,7 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CircularMenu/Info.plist;
+				INFOPLIST_FILE = SemiCircularMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,7 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CircularMenu/Info.plist;
+				INFOPLIST_FILE = SemiCircularMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DCB44CE5245AD96B000C4A6E /* Build configuration list for PBXProject "CircularMenu" */ = {
+		DCB44CE5245AD96B000C4A6E /* Build configuration list for PBXProject "SemiCircularMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCB44CFC245AD96D000C4A6E /* Debug */,
@@ -350,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCB44CFE245AD96D000C4A6E /* Build configuration list for PBXNativeTarget "CircularMenu" */ = {
+		DCB44CFE245AD96D000C4A6E /* Build configuration list for PBXNativeTarget "SemiCircularMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCB44CFF245AD96D000C4A6E /* Debug */,
